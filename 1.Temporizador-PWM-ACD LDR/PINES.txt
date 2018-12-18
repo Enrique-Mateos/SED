@@ -1,0 +1,9 @@
+PINES: D12,14 IN/OUT
+       D13,15 PWM    
+       A1 Entrada convertidor A/D	
+
+Ejecucion: 
+PIN_12,14 se activan con pulsador de la placa, se apagan al finalizar el timer_2
+
+PIN_13 pulsos PWM en bucle
+PIN_15 Setea PWM en funcion de la tension recibida en el pin A1 (ADC)
