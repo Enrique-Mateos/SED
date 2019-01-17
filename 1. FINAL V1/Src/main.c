@@ -45,8 +45,7 @@
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
-ADC_HandleTypeDef hadc2;
+
 
 SPI_HandleTypeDef hspi1;
 
@@ -59,7 +58,8 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
+ADC_HandleTypeDef hadc1;
+ADC_HandleTypeDef hadc2;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,6 +74,13 @@ static void MX_TIM3_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+                                
+                                
+
+/* USER CODE BEGIN PFP */
+/* Private function prototypes -----------------------------------------------*/
+
 void Dibujado_Pantalla(void);
 void Dibujado_on(int X); //Funcion dibujo rectangulo verde en pantalla, se envia posicion como parametro
 void Dibujado_off(int X);
@@ -83,13 +90,6 @@ void Ultrasonidos(void);
 void Potenciometro(void);
 void Dibujado_Potenciometro(int V);
 void LDR_ (void);
-
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-                                
-                                
-
-/* USER CODE BEGIN PFP */
-/* Private function prototypes -----------------------------------------------*/
 
 /* USER CODE END PFP */
 
