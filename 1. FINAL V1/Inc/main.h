@@ -83,8 +83,6 @@
 #define LCD_DC_GPIO_Port GPIOC
 #define LCD_RS_Pin GPIO_PIN_9
 #define LCD_RS_GPIO_Port GPIOA
-#define LCD_CS_Pin GPIO_PIN_6
-#define LCD_CS_GPIO_Port GPIOB
 #define OTG_FS_ID_Pin GPIO_PIN_10
 #define OTG_FS_ID_GPIO_Port GPIOA
 #define OTG_FS_DM_Pin GPIO_PIN_11
@@ -101,8 +99,8 @@
 #define I2S3_SD_GPIO_Port GPIOC
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
-#define LCD_CD_Pin GPIO_PIN_6
-#define LCD_CD_GPIO_Port GPIOB
+#define LCD_CS_Pin GPIO_PIN_6
+#define LCD_CS_GPIO_Port GPIOB
 #define Audio_SDA_Pin GPIO_PIN_9
 #define Audio_SDA_GPIO_Port GPIOB
 

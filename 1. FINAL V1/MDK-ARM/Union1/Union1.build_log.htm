@@ -21,30 +21,69 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-C:\Users\surface\Dropbox\Uni 18-19\sed\18-19\Trabajo\compartido\1. FINAL V1\MDK-ARM\Union1.uvprojx
-Project File Date:  01/17/2019
+C:\Keil_v5\Proyectos\SED\1. FINAL V1.3\1. FINAL V1.3\mdk-arm\Union1.uvprojx
+Project File Date:  01/20/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Union1'
+compiling stm32f4xx_it.c...
+compiling MY_ILI9341.c...
+..\SPI_LCD_Touch Library\MY_ILI9341.c(325): warning:  #177-D: variable "colorL"  was declared but never referenced
+  	uint8_t colorL,colorH;
+..\SPI_LCD_Touch Library\MY_ILI9341.c(325): warning:  #177-D: variable "colorH"  was declared but never referenced
+  	uint8_t colorL,colorH;
+..\SPI_LCD_Touch Library\MY_ILI9341.c(448): warning:  #177-D: variable "myColor"  was declared but never referenced
+  	uint16_t myColor = 0xFF;
+..\SPI_LCD_Touch Library\MY_ILI9341.c(512): warning:  #177-D: function "drawCircleHelper"  was declared but never referenced
+  static void drawCircleHelper( int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color)
+..\SPI_LCD_Touch Library\MY_ILI9341.c(29): warning:  #550-D: variable "tftRESET_GPIO"  was set but never used
+  static GPIO_TypeDef  *tftRESET_GPIO;
+..\SPI_LCD_Touch Library\MY_ILI9341.c(30): warning:  #550-D: variable "tftRESET_PIN"  was set but never used
+  static uint16_t tftRESET_PIN;
+..\SPI_LCD_Touch Library\MY_ILI9341.c: 6 warnings, 0 errors
 compiling main.c...
-../Src/main.c(885): warning:  #188-D: enumerated type mixed with another type
+../Src/main.c(867): warning:  #188-D: enumerated type mixed with another type
+      HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,1);
+../Src/main.c(874): warning:  #188-D: enumerated type mixed with another type
+       HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,0);
+../Src/main.c(900): warning:  #188-D: enumerated type mixed with another type
   			   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,1);
-../Src/main.c(889): warning:  #188-D: enumerated type mixed with another type
+../Src/main.c(904): warning:  #188-D: enumerated type mixed with another type
   			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,0);
-../Src/main.c(899): warning:  #188-D: enumerated type mixed with another type
+../Src/main.c(914): warning:  #188-D: enumerated type mixed with another type
   	   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,1);//CAMBIADO A PC6
-../Src/main.c(901): warning:  #188-D: enumerated type mixed with another type
+../Src/main.c(916): warning:  #188-D: enumerated type mixed with another type
        HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,0);	
-../Src/main.c(911): warning:  #188-D: enumerated type mixed with another type
+../Src/main.c(926): warning:  #188-D: enumerated type mixed with another type
   		 HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,1);
-../Src/main.c(915): warning:  #188-D: enumerated type mixed with another type
+../Src/main.c(930): warning:  #188-D: enumerated type mixed with another type
   			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,0);
-../Src/main.c: 6 warnings, 0 errors
+../Src/main.c: 8 warnings, 0 errors
+compiling stm32f4xx_hal_msp.c...
+compiling stm32f4xx_hal_adc_ex.c...
+compiling stm32f4xx_hal_adc.c...
+compiling stm32f4xx_hal_spi.c...
+compiling stm32f4xx_hal_tim_ex.c...
+compiling stm32f4xx_hal_tim.c...
+compiling stm32f4xx_hal_rcc.c...
+compiling stm32f4xx_hal_uart.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_flash.c...
+compiling stm32f4xx_hal_flash_ramfunc.c...
+compiling stm32f4xx_hal_flash_ex.c...
+compiling stm32f4xx_hal_gpio.c...
+compiling stm32f4xx_hal_dma.c...
+compiling stm32f4xx_hal_dma_ex.c...
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal_pwr_ex.c...
+compiling stm32f4xx_hal_cortex.c...
+compiling stm32f4xx_hal.c...
+compiling system_stm32f4xx.c...
 linking...
-Program Size: Code=13172 RO-data=1728 RW-data=104 ZI-data=1648  
+Program Size: Code=13224 RO-data=1728 RW-data=108 ZI-data=1652  
 FromELF: creating hex file...
-"Union1\Union1.axf" - 0 Error(s), 6 Warning(s).
+"Union1\Union1.axf" - 0 Error(s), 14 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -67,7 +106,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.2
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:01:30
 </pre>
 </body>
 </html>

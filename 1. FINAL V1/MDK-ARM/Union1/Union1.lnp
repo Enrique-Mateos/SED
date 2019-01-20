@@ -1,9 +1,9 @@
 --cpu=Cortex-M4.fp
 "union1\startup_stm32f407xx.o"
+"union1\my_ili9341.o"
 "union1\main.o"
 "union1\stm32f4xx_it.o"
 "union1\stm32f4xx_hal_msp.o"
-"union1\my_ili9341.o"
 "union1\stm32f4xx_hal_adc.o"
 "union1\stm32f4xx_hal_adc_ex.o"
 "union1\stm32f4xx_hal_spi.o"

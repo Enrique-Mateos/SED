@@ -45,7 +45,8 @@
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-
+ADC_HandleTypeDef hadc1;
+ADC_HandleTypeDef hadc2;
 
 SPI_HandleTypeDef hspi1;
 
@@ -384,7 +385,7 @@ static void MX_ADC2_Init(void)
     */
   hadc2.Instance = ADC2;
   hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
-  hadc2.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc2.Init.Resolution = ADC_RESOLUTION_8B;
   hadc2.Init.ScanConvMode = DISABLE;
   hadc2.Init.ContinuousConvMode = DISABLE;
   hadc2.Init.DiscontinuousConvMode = DISABLE;
@@ -444,9 +445,9 @@ static void MX_TIM1_Init(void)
   TIM_IC_InitTypeDef sConfigIC;
 
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 10;
+  htim1.Init.Prescaler = 100;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 62500;
+  htim1.Init.Period = 20000;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
@@ -701,7 +702,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LCD_RS_GPIO_Port, LCD_RS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LCD_CD_GPIO_Port, LCD_CD_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LCD_CS_GPIO_Port, LCD_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PDM_OUT_Pin */
   GPIO_InitStruct.Pin = PDM_OUT_Pin;
@@ -770,12 +771,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LCD_CD_Pin */
-  GPIO_InitStruct.Pin = LCD_CD_Pin;
+  /*Configure GPIO pin : LCD_CS_Pin */
+  GPIO_InitStruct.Pin = LCD_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LCD_CD_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(LCD_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Audio_SDA_Pin */
   GPIO_InitStruct.Pin = Audio_SDA_Pin;
@@ -850,7 +851,7 @@ ILI9341_Fill_Rect(180,X,210,X+10,COLOR_BLACK);
 void Inte_Debounce(void)
 {
 	//Parte del interruptor debounce
-
+/*
 if(Statein1==1 && estadoA==0){
 	
     HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_12);
@@ -861,7 +862,21 @@ if(Statein1==0)
 		 
      estadoA=0;
 		 
-   }		
+   }*/
+	if(Statein1==1){
+    HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,1);
+		HAL_Delay(200);
+		estadoA=1;
+		estadoB=0;
+		
+	}
+   else{
+     HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,0);
+		 HAL_Delay(200);
+		 estadoB=1;
+		 estadoA=0;
+		 
+   }	
 aux1=HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_12); //igualamos aux1 al valor del pin 12
 
 if (aux1)
@@ -902,7 +917,7 @@ void Ultrasonidos(void)
      HAL_Delay(5999/100);//en cero durante 5
 		}
 		
-		//distancia=inputCaptureVal1/58;
+		distancia=inputCaptureVal1/58;
 
     //prueba de que el se encienda si la distancia es menor de 20 cm
 		if(distancia<20)			
@@ -993,8 +1008,6 @@ void _Error_Handler(char *file, int line)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-
-
 
 #ifdef  USE_FULL_ASSERT
 /**
