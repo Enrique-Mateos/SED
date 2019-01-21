@@ -82,9 +82,9 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 
-void Dibujado_Pantalla(void);
+void Dibujado_Pantalla(void);//Dibujamos la interface inicial
 void Dibujado_on(int X); //Funcion dibujo rectangulo verde en pantalla, se envia posicion como parametro
-void Dibujado_off(int X);
+void Dibujado_off(int X);//Funcion dibujo rectangulo rojo en pantalla, se envia posicion como parametro
 void Inte_Debounce(void);
 void Inte_Tempo(void);
 void Ultrasonidos(void);
@@ -894,7 +894,7 @@ void Inte_Tempo(void)
 		//bucle que hace que se apage el led cada cierto tiempo
 			
 		if (counterVal < 9000)//EL VALOR LO HE PUESTO ALEATORIAMENTE NO ESTA MEDIDO HABRI QUE CAMBIAR LOS PARAM. EN CONFI.
-			{ //Revisar para utilizar el flanco lanzado por el temporazador, en vez de contar los pulsos acumulados 
+			{ 
 			if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_3)==1)
 				{
 			   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,1);
@@ -965,7 +965,7 @@ ILI9341_Fill_Rect(180,150,280-V,165,COLOR_GREEN);
 void LDR_ (void) //funcionalidad sustituida por potenciometro
 {
 		//codigo del ldr
-		//creo que esto sobra que es de tu temporizacion pero ante la duda lo he dejado
+	
 			if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_1))//cambiado del A0 a A1
 		{		
 		if (timer>65000)
