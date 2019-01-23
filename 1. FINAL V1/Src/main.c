@@ -850,33 +850,35 @@ ILI9341_Fill_Rect(180,X,210,X+10,COLOR_BLACK);
 
 void Inte_Debounce(void)
 {
+	int aux4;
 	//Parte del interruptor debounce
-/*
-if(Statein1==1 && estadoA==0){
+aux4=HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_11);
+if(aux4 && estadoA==0){
 	
     HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_12);
 				estadoA=1;
+	estadoB=0;
 		}
-if(Statein1==0)
+if(aux4==0)
 {
-		 
+		 estadoB=1;
      estadoA=0;
 		 
-   }*/
-	if(Statein1==1){
-    HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,1);
-		HAL_Delay(200);
-		estadoA=1;
-		estadoB=0;
-		
-	}
-   else{
-     HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,0);
-		 HAL_Delay(200);
-		 estadoB=1;
-		 estadoA=0;
+   }
+//	if(Statein1==1){
+//    HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,1);
+//		HAL_Delay(200);
+//		estadoA=1;
+//		estadoB=0;
+//		
+//	}
+//   else{
+//     HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,0);
+//		 HAL_Delay(200);
+//		 estadoB=1;
+//		 estadoA=0;
 		 
-   }	
+   //}	
 aux1=HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_12); //igualamos aux1 al valor del pin 12
 
 if (aux1)
@@ -893,7 +895,7 @@ void Inte_Tempo(void)
 		
 		//bucle que hace que se apage el led cada cierto tiempo
 			
-		if (counterVal < 9000)//EL VALOR LO HE PUESTO ALEATORIAMENTE NO ESTA MEDIDO HABRI QUE CAMBIAR LOS PARAM. EN CONFI.
+		if (counterVal < 25000)//EL VALOR LO HE PUESTO ALEATORIAMENTE NO ESTA MEDIDO HABRI QUE CAMBIAR LOS PARAM. EN CONFI.
 			{ 
 			if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_3)==1)
 				{
