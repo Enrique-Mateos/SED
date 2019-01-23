@@ -1,6 +1,15 @@
 
 # Version final del proyecto
 
+Desarrollado por:
+
+Christopher Enga     
+Enrique Mateos       
+
+# Introducción
+El presente trabajo tiene como objeto el desarrollo de un control de luminarias LED, el cual podría formar parte de un sistema domótica para el hogar.
+Por lo general estos sistemas son capaces de crear diferentes ambientes y escenas controlados mediante una CPU, ya sea un PLC o un microcontrolador entre otros. Dicha centralita está encargada de la ejecución de la programación y de las comunicaciones con los sensores, luminarias y en algunos casos con aplicaciones móviles e incluso mediante la red.
+
 
 # CONEXIONADO:
 
